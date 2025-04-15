@@ -37,4 +37,4 @@ fun whenButton(debounceTimeMillis: Long, stateSupplier: Supplier<Boolean>) =
 
 fun whenButton(button: Button) = button
 
-fun range(valueSupplier: Supplier<Double>) = Range(valueSupplier)
+fun range(valueSupplier: Supplier<out Number>) = Range { valueSupplier.get().toDouble() }

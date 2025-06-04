@@ -1,5 +1,9 @@
 # NextBindings
 
+![Version](https://img.shields.io/maven-central/v/dev.nextftc/bindings?label=version)
+![GitHub Repo stars](https://img.shields.io/github/stars/NextFTC/NextBindings?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/NextFTC/NextBindings)
+
 NextBindings is an open-source bindings library for
 the [FIRST Tech Challenge](https://www.firstinspires.org/robotics/ftc). It provides a declarative DSL for binding events
 to inputs, such as gamepad buttons, joysticks, and limit switches.
@@ -31,9 +35,7 @@ Add the following code to your OpMode:
 BindingManager.update();
 
 // in stop, or onStop with NextFTC:
-BindingManager.
-
-reset();
+BindingManager.  reset();
 ```
 
 To bind to a button, do:
@@ -47,11 +49,7 @@ whenButton { gamepad1.a } isPressed { runSomeCode() }
 *Java:*
 
 ```java
-whenButton(() ->gamepad1.a).
-
-isPressed(() ->
-
-runSomeCode());
+whenButton(() ->gamepad1.a).isPressed(() -> runSomeCode());
 ```
 
 For more in-depth usage, read the [docs](https://nextftc.dev/bindings).

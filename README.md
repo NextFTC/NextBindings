@@ -35,7 +35,7 @@ Add the following code to your OpMode:
 BindingManager.update();
 
 // in stop, or onStop with NextFTC:
-BindingManager.  reset();
+BindingManager.reset();
 ```
 
 To bind to a button, do:
@@ -49,7 +49,7 @@ whenButton { gamepad1.a } isPressed { runSomeCode() }
 *Java:*
 
 ```java
-whenButton(() ->gamepad1.a).isPressed(() -> runSomeCode());
+whenButton(() -> gamepad1.a).isPressed(() -> runSomeCode());
 ```
 
 For more in-depth usage, read the [docs](https://nextftc.dev/bindings).

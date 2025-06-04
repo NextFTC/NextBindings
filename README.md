@@ -1,6 +1,6 @@
 # NextBindings
 
-![Version](https://img.shields.io/maven-central/v/dev.nextftc/bindings?label=version)
+![GitHub Release](https://img.shields.io/github/v/release/NextFTC/NextBindings?sort=semver&label=version)
 ![GitHub Repo stars](https://img.shields.io/github/stars/NextFTC/NextBindings?style=flat)
 ![GitHub last commit](https://img.shields.io/github/last-commit/NextFTC/NextBindings)
 

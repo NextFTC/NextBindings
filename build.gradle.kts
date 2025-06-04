@@ -27,7 +27,7 @@ kotlin {
 
 val dokkaJar = tasks.register<Jar>("dokkaJar") {
     dependsOn(tasks.named("dokkaGenerate"))
-    from(dokka.basePublicationsDirectory)
+    from(dokka.basePublicationsDirectory.dir("html"))
     archiveClassifier = "html-docs"
 }
 
@@ -73,6 +73,6 @@ deployer {
             user = secret("SONATYPE_USERNAME")
             password = secret("SONATYPE_PASSWORD")
         }
-        allowMavenCentralSync = false
+        allowMavenCentralSync = (property("automaticMavenCentralSync") as String).toBoolean()
     }
 }

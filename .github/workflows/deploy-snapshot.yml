@@ -17,7 +17,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     - name: Grant execute permission
-      run: chmod +x gradle
+      run: chmod +x gradlew
     - name: Deploy Snapshot
       run: ./gradlew deployNexusSnapshot
       env:

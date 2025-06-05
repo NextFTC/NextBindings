@@ -25,4 +25,4 @@ jobs:
             MVN_GPG_PASSWORD: ${{ secrets.MVN_GPG_PASSWORD }}
             SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
             SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-            VERSION: ${{ github.event.release.tag_name.substring(1) }}
+            VERSION: ${{ github.event.release.tag_name }}

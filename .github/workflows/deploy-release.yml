@@ -1,12 +1,12 @@
-name: Deploy Snapshot
+name: Deploy Release
 
 on:
-  push:
-    branches: [develop]
+    release:
+        types: [released, prereleased]
 
 jobs:
-  deploy-snapshot:
-    runs-on: ubuntu-latest
+    deploy-release:
+        runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
@@ -18,10 +18,11 @@ jobs:
         distribution: 'temurin'
     - name: Grant execute permission
       run: chmod +x gradlew
-    - name: Deploy Snapshot
-      run: ./gradlew deployNexusSnapshot
+    - name: Deploy to Maven Central
+      run: ./gradlew deployCentralPortal -Pversion=$VERSION
       env:
         MVN_GPG_KEY: ${{ secrets.MVN_GPG_KEY }}
         MVN_GPG_PASSWORD: ${{ secrets.MVN_GPG_PASSWORD }}
         SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
         SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+        VERSION: ${{ github.event.release.tag_name.substring(1) }}

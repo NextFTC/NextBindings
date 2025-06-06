@@ -35,6 +35,7 @@ object BindingManager {
     /**
      * The current layer, or null if there is no current layer.
      */
+    @JvmStatic
     var layer: String? = null
     private val variables = mutableListOf<Variable<*>>()
     private val buttons = mutableListOf<Button>()
@@ -45,6 +46,7 @@ object BindingManager {
      * Variables are updated first, and then button. This is so that buttons that depend on variables can use the
      * updated values.
      */
+     @JvmStatic
     fun update() {
         variables.forEach { it.update() }
         buttons.forEach { it.update(layer) }
@@ -53,6 +55,7 @@ object BindingManager {
     /**
      * Adds a variable to the list of variables to be updated.
      */
+    @JvmStatic
     fun add(variable: Variable<*>) {
         variables.add(variable)
     }
@@ -60,6 +63,7 @@ object BindingManager {
     /**
      * Adds a button to the list of buttons to be updated.
      */
+    @JvmStatic
     fun add(button: Button) {
         buttons.add(button)
     }
@@ -69,6 +73,7 @@ object BindingManager {
      *
      * Removes all variables and buttons and sets the current layer to null.
      */
+    @JvmStatic
     fun reset() {
         variables.clear()
         buttons.clear()

@@ -30,7 +30,7 @@ fun <T> variable(valueSupplier: Supplier<T>): Variable<T> = Variable(valueSuppli
 /**
  * Creates a [Range] with the given [valueSupplier] and registers it with the [BindingManager].
  */
-fun range(valueSupplier: Supplier<Double>): Range = Range(valueSupplier).also { BindingManager.add(it) }
+fun range(valueSupplier: Supplier<out Number>): Range = Range { valueSupplier.get().toDouble() }.also { BindingManager.add(it) }
 
 /**
  * Creates a [Button] with the given [valueSupplier] and registers it with the [BindingManager].

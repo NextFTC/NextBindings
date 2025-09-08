@@ -32,12 +32,12 @@ import java.util.function.Supplier
  * @see Range for creating a double variable with number-specific utilities.
  */
 open class Variable<T>(private val valueSupplier: Supplier<T>) : Supplier<T> {
-    private var value: T = valueSupplier.get()
+    private var value: T? = null
 
     /**
      * Gets the cached value of the variable. The cached value is updated when [update] is called.
      */
-    override fun get(): T = value
+    override fun get(): T = value ?: error("Variable not updated; call update() first")
 
     /**
      * Creates a new [Variable] that maps the value of this variable using the given [mapper] and registers it with

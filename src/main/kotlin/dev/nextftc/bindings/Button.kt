@@ -68,7 +68,7 @@ class Button(private val valueSupplier: Supplier<Boolean>) : Supplier<Boolean> {
         class Named(val name: String?) : Layer
     }
 
-    private var value: Boolean = valueSupplier.get()
+    private var value: Boolean = false
     private var previousValue = value
 
     /**

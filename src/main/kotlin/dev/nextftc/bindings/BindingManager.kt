@@ -69,14 +69,25 @@ object BindingManager {
     }
 
     /**
-     * Resets the manager to its initial state.
+     * Removes all callback bindings. **DOES NOT** stop updating the state of buttons and variables.
      *
-     * Removes all variables and buttons and sets the current layer to null.
+     * Removes all bindings and sets the current layer to null.
      */
     @JvmStatic
     fun reset() {
-        variables.clear()
-        buttons.clear()
+        buttons.forEach { it.clear() }
         layer = null
+    }
+
+    /**
+     * Calls [reset] along with removing all buttons and variables from being updated.
+     *
+     * Complete reset to the initial state.
+     */
+    @JvmStatic
+    fun fullReset() {
+        buttons.clear()
+        variables.clear()
+        reset()
     }
 }
